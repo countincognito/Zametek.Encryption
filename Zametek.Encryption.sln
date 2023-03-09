@@ -1,0 +1,110 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{44063AB0-1C17-4C66-8C45-81FEE55AF313}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FEC20612-2BDD-4770-973D-2D97A0B73838}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zametek.Access.Encryption.Primitives", "src\Zametek.Access.Encryption.Primitives\Zametek.Access.Encryption.Primitives.csproj", "{D641F2B6-E3B7-443A-9A2A-0DC766FF272D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zametek.Utility.Encryption.Primitives", "src\Zametek.Utility.Encryption.Primitives\Zametek.Utility.Encryption.Primitives.csproj", "{AED1678C-BCF4-42E3-8C59-C408ED67B110}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zametek.Utility.Encryption.Impl", "src\Zametek.Utility.Encryption.Impl\Zametek.Utility.Encryption.Impl.csproj", "{EF66A559-906B-4350-BEE1-F9DF62AE477E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Access", "Access", "{ABD93BE4-2828-4CC7-8F87-0862A2656C01}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utility", "Utility", "{89D8340F-4DF0-4AC6-9625-EC05FAA55F87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utility", "Utility", "{F5774FFA-D62F-469E-A333-5CBA74CEC42B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zametek.Utility.Encryption.TestApp", "test\Zametek.Utility.Encryption.TestApp\Zametek.Utility.Encryption.TestApp.csproj", "{D98E3BF2-9025-48EB-9FB9-14EEB31B599F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zametek.Utility.Encryption.AzureKeyVault", "src\Zametek.Utility.Encryption.AzureKeyVault\Zametek.Utility.Encryption.AzureKeyVault.csproj", "{E634238B-4F6D-432B-ACCE-EBD1BC539238}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zametek.Utility.Encryption.AzureKeyVault.Tests", "test\Zametek.Utility.Encryption.AzureKeyVault.Tests\Zametek.Utility.Encryption.AzureKeyVault.Tests.csproj", "{EF5F64BA-71E7-4CDB-8E06-9115D46AC4A9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zametek.Access.Encryption.SqlServer", "src\Zametek.Access.Encryption.SqlServer\Zametek.Access.Encryption.SqlServer.csproj", "{2766DB88-0C52-4EF6-8CAC-9E0173A1644B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Access", "Access", "{390F13C9-64D4-4902-BDBA-6123C0D59499}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zametek.Access.Encryption.SqlServer.Tests", "test\Zametek.Access.Encryption.SqlServer.Tests\Zametek.Access.Encryption.SqlServer.Tests.csproj", "{AE18F343-CAC0-4385-89F7-441E95BC32AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{7C4F59FB-4D42-4F82-9E07-268A9576E2C2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zametek.Shared.Encryption.EFCore.TestHelpers", "test\Zametek.Shared.Encryption.EFCore.TestHelpers\Zametek.Shared.Encryption.EFCore.TestHelpers.csproj", "{4C7D0042-69B7-4FD9-AAB6-C5EDAA602AE1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zametek.Utility.Encryption.Extra", "src\Zametek.Utility.Encryption.Extra\Zametek.Utility.Encryption.Extra.csproj", "{83CDC179-1340-4E69-8253-5DCC14042D63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D641F2B6-E3B7-443A-9A2A-0DC766FF272D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D641F2B6-E3B7-443A-9A2A-0DC766FF272D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D641F2B6-E3B7-443A-9A2A-0DC766FF272D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D641F2B6-E3B7-443A-9A2A-0DC766FF272D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AED1678C-BCF4-42E3-8C59-C408ED67B110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED1678C-BCF4-42E3-8C59-C408ED67B110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AED1678C-BCF4-42E3-8C59-C408ED67B110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AED1678C-BCF4-42E3-8C59-C408ED67B110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF66A559-906B-4350-BEE1-F9DF62AE477E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF66A559-906B-4350-BEE1-F9DF62AE477E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF66A559-906B-4350-BEE1-F9DF62AE477E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF66A559-906B-4350-BEE1-F9DF62AE477E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D98E3BF2-9025-48EB-9FB9-14EEB31B599F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D98E3BF2-9025-48EB-9FB9-14EEB31B599F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D98E3BF2-9025-48EB-9FB9-14EEB31B599F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D98E3BF2-9025-48EB-9FB9-14EEB31B599F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E634238B-4F6D-432B-ACCE-EBD1BC539238}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E634238B-4F6D-432B-ACCE-EBD1BC539238}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E634238B-4F6D-432B-ACCE-EBD1BC539238}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E634238B-4F6D-432B-ACCE-EBD1BC539238}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF5F64BA-71E7-4CDB-8E06-9115D46AC4A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF5F64BA-71E7-4CDB-8E06-9115D46AC4A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF5F64BA-71E7-4CDB-8E06-9115D46AC4A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF5F64BA-71E7-4CDB-8E06-9115D46AC4A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2766DB88-0C52-4EF6-8CAC-9E0173A1644B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2766DB88-0C52-4EF6-8CAC-9E0173A1644B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2766DB88-0C52-4EF6-8CAC-9E0173A1644B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2766DB88-0C52-4EF6-8CAC-9E0173A1644B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE18F343-CAC0-4385-89F7-441E95BC32AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE18F343-CAC0-4385-89F7-441E95BC32AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE18F343-CAC0-4385-89F7-441E95BC32AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE18F343-CAC0-4385-89F7-441E95BC32AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C7D0042-69B7-4FD9-AAB6-C5EDAA602AE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C7D0042-69B7-4FD9-AAB6-C5EDAA602AE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C7D0042-69B7-4FD9-AAB6-C5EDAA602AE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C7D0042-69B7-4FD9-AAB6-C5EDAA602AE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83CDC179-1340-4E69-8253-5DCC14042D63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83CDC179-1340-4E69-8253-5DCC14042D63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83CDC179-1340-4E69-8253-5DCC14042D63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83CDC179-1340-4E69-8253-5DCC14042D63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D641F2B6-E3B7-443A-9A2A-0DC766FF272D} = {ABD93BE4-2828-4CC7-8F87-0862A2656C01}
+		{AED1678C-BCF4-42E3-8C59-C408ED67B110} = {89D8340F-4DF0-4AC6-9625-EC05FAA55F87}
+		{EF66A559-906B-4350-BEE1-F9DF62AE477E} = {89D8340F-4DF0-4AC6-9625-EC05FAA55F87}
+		{ABD93BE4-2828-4CC7-8F87-0862A2656C01} = {44063AB0-1C17-4C66-8C45-81FEE55AF313}
+		{89D8340F-4DF0-4AC6-9625-EC05FAA55F87} = {44063AB0-1C17-4C66-8C45-81FEE55AF313}
+		{F5774FFA-D62F-469E-A333-5CBA74CEC42B} = {FEC20612-2BDD-4770-973D-2D97A0B73838}
+		{D98E3BF2-9025-48EB-9FB9-14EEB31B599F} = {F5774FFA-D62F-469E-A333-5CBA74CEC42B}
+		{E634238B-4F6D-432B-ACCE-EBD1BC539238} = {89D8340F-4DF0-4AC6-9625-EC05FAA55F87}
+		{EF5F64BA-71E7-4CDB-8E06-9115D46AC4A9} = {F5774FFA-D62F-469E-A333-5CBA74CEC42B}
+		{2766DB88-0C52-4EF6-8CAC-9E0173A1644B} = {ABD93BE4-2828-4CC7-8F87-0862A2656C01}
+		{390F13C9-64D4-4902-BDBA-6123C0D59499} = {FEC20612-2BDD-4770-973D-2D97A0B73838}
+		{AE18F343-CAC0-4385-89F7-441E95BC32AA} = {390F13C9-64D4-4902-BDBA-6123C0D59499}
+		{7C4F59FB-4D42-4F82-9E07-268A9576E2C2} = {FEC20612-2BDD-4770-973D-2D97A0B73838}
+		{4C7D0042-69B7-4FD9-AAB6-C5EDAA602AE1} = {7C4F59FB-4D42-4F82-9E07-268A9576E2C2}
+		{83CDC179-1340-4E69-8253-5DCC14042D63} = {89D8340F-4DF0-4AC6-9625-EC05FAA55F87}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00267E3E-20F5-4F5E-BE23-0CFFBADE638A}
+	EndGlobalSection
+EndGlobal

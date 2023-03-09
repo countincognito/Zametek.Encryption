@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<RootNamespace>Zametek.Access.Encryption</RootNamespace>
+		<Description>Zametek encryption utility SQL Server access implementation.</Description>
+		<Authors>countincognito</Authors>
+		<Version>0.1.0</Version>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Copyright>Copyright (c) 2023 Riccardo M Bennett-Lovsey</Copyright>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageProjectUrl>https://github.com/countincognito/Zametek.Encryption</PackageProjectUrl>
+		<NeutralLanguage>en-GB</NeutralLanguage>
+		<Company>countincognito</Company>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="10.1.1" />
+		<PackageReference Include="FluentValidation" Version="11.5.1" />
+		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.3" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
+		<PackageReference Include="Zametek.Access.Encryption.Primitives" Version="0.1.0" />
+		<PackageReference Include="Zametek.Utility" Version="2.2.0" />
+		<PackageReference Include="Zametek.Utility.Cache.Primitives" Version="0.1.0" />
+	</ItemGroup>
+
+</Project>

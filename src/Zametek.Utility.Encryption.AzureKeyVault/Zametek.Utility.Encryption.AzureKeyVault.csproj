@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>Zametek.Utility.Encryption</RootNamespace>
+		<Description>Zametek encryption utility Azure KeyVault implementation.</Description>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<Version>0.1.0</Version>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<NeutralLanguage>en-GB</NeutralLanguage>
+		<Authors>countincognito</Authors>
+		<Company>countincognito</Company>
+		<Copyright>Copyright (c) 2023 Riccardo M Bennett-Lovsey</Copyright>
+		<PackageProjectUrl>https://github.com/countincognito/Zametek.Encryption</PackageProjectUrl>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Extensions\**" />
+		<EmbeddedResource Remove="Extensions\**" />
+		<None Remove="Extensions\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Azure.Identity" Version="1.8.2" />
+		<PackageReference Include="Azure.Security.KeyVault.Keys" Version="4.4.0" />
+		<PackageReference Include="FluentValidation" Version="11.5.1" />
+		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Zametek.Utility" Version="2.2.0" />
+		<PackageReference Include="Zametek.Utility.Encryption.Primitives" Version="0.1.0" />
+		<PackageReference Include="Zametek.Utility.Logging" Version="1.2.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+</Project>
