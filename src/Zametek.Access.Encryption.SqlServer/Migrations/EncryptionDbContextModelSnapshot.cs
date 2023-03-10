@@ -8,7 +8,7 @@ using Zametek.Access.Encryption;
 
 #nullable disable
 
-namespace Zametek.Access.Encryption.Tests.Migrations
+namespace Zametek.Access.Encryption.Migrations
 {
     [DbContext(typeof(EncryptionDbContext))]
     partial class EncryptionDbContextModelSnapshot : ModelSnapshot

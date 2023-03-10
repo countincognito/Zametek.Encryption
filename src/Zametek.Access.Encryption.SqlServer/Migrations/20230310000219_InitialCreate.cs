@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Zametek.Access.Encryption.Tests.Migrations
+namespace Zametek.Access.Encryption.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

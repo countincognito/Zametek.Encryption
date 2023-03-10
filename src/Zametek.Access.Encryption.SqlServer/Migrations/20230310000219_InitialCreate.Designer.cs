@@ -9,10 +9,10 @@ using Zametek.Access.Encryption;
 
 #nullable disable
 
-namespace Zametek.Access.Encryption.Tests.Migrations
+namespace Zametek.Access.Encryption.Migrations
 {
     [DbContext(typeof(EncryptionDbContext))]
-    [Migration("20230304162954_InitialCreate")]
+    [Migration("20230310000219_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

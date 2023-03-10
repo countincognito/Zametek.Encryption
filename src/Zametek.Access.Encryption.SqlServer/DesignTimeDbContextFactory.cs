@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Zametek.Access.Encryption;
 
-namespace Zametek.Access.Encryption.Tests
+namespace Zametek.Access.Encryption
 {
     public class DesignTimeDbContextFactory
         : IDesignTimeDbContextFactory<EncryptionDbContext>
@@ -10,8 +11,7 @@ namespace Zametek.Access.Encryption.Tests
         {
             var builder = new DbContextOptionsBuilder<EncryptionDbContext>();
             builder.UseSqlServer(
-                @"Server = (LocalDb)\MSSQLLocalDB; Database = Encryption; Trusted_Connection = True; MultipleActiveResultSets = true;",
-               options => options.MigrationsAssembly("Zametek.Access.Encryption.SqlServer.Tests"));
+                @"Server = (LocalDb)\MSSQLLocalDB; Database = Encryption; Trusted_Connection = True; MultipleActiveResultSets = true;");
             return new EncryptionDbContext(builder.Options);
         }
     }
