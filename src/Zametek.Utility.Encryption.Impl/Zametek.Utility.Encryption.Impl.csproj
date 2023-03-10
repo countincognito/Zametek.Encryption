@@ -4,7 +4,7 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<RootNamespace>Zametek.Utility.Encryption</RootNamespace>
 		<Description>Zametek encryption utility implementation.</Description>
-		<Version>0.1.0</Version>
+		<Version>0.1.1</Version>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<NeutralLanguage>en-GB</NeutralLanguage>
@@ -22,11 +22,11 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
-		<PackageReference Include="Zametek.Access.Encryption.Primitives" Version="0.1.0" />
+		<PackageReference Include="Zametek.Access.Encryption.Primitives" Version="0.1.1" />
 		<PackageReference Include="Zametek.Utility" Version="2.2.0" />
 		<PackageReference Include="Zametek.Utility.Cache.Primitives" Version="0.1.0" />
-		<PackageReference Include="Zametek.Utility.Encryption.Extra" Version="0.1.0" />
-		<PackageReference Include="Zametek.Utility.Encryption.Primitives" Version="0.1.0" />
+		<PackageReference Include="Zametek.Utility.Encryption.Extra" Version="0.1.1" />
+		<PackageReference Include="Zametek.Utility.Encryption.Primitives" Version="0.1.1" />
 	</ItemGroup>
 
 	<ItemGroup>

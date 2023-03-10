@@ -4,7 +4,7 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<RootNamespace>Zametek.Utility.Encryption</RootNamespace>
 		<Description>Zametek encryption utility primitives.</Description>
-		<Version>0.1.0</Version>
+		<Version>0.1.1</Version>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<Copyright>Copyright (c) 2023 Riccardo M Bennett-Lovsey</Copyright>
