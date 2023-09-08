@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Zametek.Access.Encryption;
 
 namespace Zametek.Access.Encryption
 {

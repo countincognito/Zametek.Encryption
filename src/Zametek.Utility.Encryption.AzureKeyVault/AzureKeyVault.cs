@@ -5,7 +5,6 @@ using Azure.Security.KeyVault.Keys.Cryptography;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Zametek.Utility.Logging;

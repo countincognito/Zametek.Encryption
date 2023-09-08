@@ -1,14 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using System;
 using System.Threading.Tasks;
-using TestSupport.EfHelpers;
 using Xunit;
 using Zametek.Access.Encryption;
-using Zametek.Shared.Encryption.EFCore.TestHelpers;
 using Zametek.Utility;
 using Zametek.Utility.Cache;
 using Zametek.Utility.Encryption;
@@ -45,20 +44,25 @@ if (inMemory)
 {
     serviceCollection.AddSingleton<IAsymmetricKeyVault>(new FakeKeyVault());
 
-    DbContextOptionsDisposable<EncryptionDbContext> options =
-        SqliteInMemory.CreateOptions<EncryptionDbContext>(builder => builder.ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning)));
-
-    // https://github.com/JonPSmith/EfCore.TestSupport/blob/master/Version5UpgradeDocs.md
-    options.TurnOffDispose();
-
-    serviceCollection.AddDbContextFactoryEx<EncryptionDbContext>(() => options);
+    serviceCollection.AddPooledDbContextFactory<EncryptionDbContext>(optionsBuilder =>
+    {
+        SqliteConnectionStringBuilder sqliteConnectionStringBuilder = new()
+        {
+            DataSource = @":memory:"
+        };
+        string connectionString = sqliteConnectionStringBuilder.ToString();
+        SqliteConnection sqliteConnection = new(connectionString);
+        sqliteConnection.Open();
+        optionsBuilder.UseSqlite(sqliteConnection);
+        optionsBuilder.ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning));
+    });
 }
 else
 {
     serviceCollection.AddSingleton<IAsymmetricKeyVault, AzureKeyVault>()
         .Configure<AzureKeyVaultOptions>(options => config.Bind("AzureKeyVaultOptions", options));
 
-    serviceCollection.AddDbContextFactoryEx<EncryptionDbContext>(options => options.UseSqlServer(config["EncryptionDbConnectionString"]));
+    serviceCollection.AddPooledDbContextFactory<EncryptionDbContext>(optionsBuilder => optionsBuilder.UseSqlServer(config["EncryptionDbConnectionString"]));
 }
 
 var serviceProvider = serviceCollection.BuildServiceProvider();

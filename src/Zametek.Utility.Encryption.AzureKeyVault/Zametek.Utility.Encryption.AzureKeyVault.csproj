@@ -21,16 +21,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Azure.Identity" Version="1.8.2" />
-		<PackageReference Include="Azure.Security.KeyVault.Keys" Version="4.4.0" />
-		<PackageReference Include="FluentValidation" Version="11.5.1" />
-		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.1">
+		<PackageReference Include="Azure.Identity" Version="1.10.0" />
+		<PackageReference Include="Azure.Security.KeyVault.Keys" Version="4.5.0" />
+		<PackageReference Include="FluentValidation" Version="11.7.1" />
+		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.4">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Zametek.Utility" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
 		<PackageReference Include="Zametek.Utility.Encryption.Primitives" Version="0.1.1" />
-		<PackageReference Include="Zametek.Utility.Logging" Version="1.2.0" />
+		<PackageReference Include="Zametek.Utility" Version="3.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>

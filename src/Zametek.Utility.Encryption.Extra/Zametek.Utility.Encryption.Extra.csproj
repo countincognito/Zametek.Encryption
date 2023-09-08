@@ -22,12 +22,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.1">
+		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.4">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="7.0.3" />
-		<PackageReference Include="Zametek.Utility" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="7.0.10" />
+		<PackageReference Include="Zametek.Utility" Version="3.0.0" />
 		<PackageReference Include="Zametek.Utility.Encryption.Primitives" Version="0.1.1" />
 	</ItemGroup>
 

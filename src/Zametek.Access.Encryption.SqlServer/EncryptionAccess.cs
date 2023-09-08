@@ -3,10 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
 using Serilog;
-using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Zametek.Utility;
 using Zametek.Utility.Cache;
 using Zametek.Utility.Logging;
@@ -21,7 +17,7 @@ namespace Zametek.Access.Encryption
 
         private readonly ICacheUtility m_CacheUtility;
         private readonly IMapper m_Mapper;
-        private readonly Func<EncryptionDbContext> m_CtxFactory;
+        private readonly IDbContextFactory<EncryptionDbContext> m_CtxFactory;
         private readonly ILogger m_Logger;
 
         private readonly DistributedCacheEntryOptions m_CacheOptions;
@@ -35,7 +31,7 @@ namespace Zametek.Access.Encryption
         public EncryptionAccess(
             ICacheUtility cacheUtility,
             IMapper mapper,
-            Func<EncryptionDbContext> ctxFactory,
+            IDbContextFactory<EncryptionDbContext> ctxFactory,
             IOptions<CacheOptions> cacheOptions,
             ILogger logger)
         {
@@ -181,7 +177,7 @@ namespace Zametek.Access.Encryption
             symmetricKey.CreatedAt = time;
             symmetricKey.ModifiedAt = time;
 
-            using var ctx = m_CtxFactory();
+            using var ctx = await m_CtxFactory.CreateDbContextAsync(ct).ConfigureAwait(false);
             using var transaction = await ctx.Database.BeginTransactionAsync(ct).ConfigureAwait(false);
 
             try
@@ -216,7 +212,7 @@ namespace Zametek.Access.Encryption
 
             SymmetricKey? symmetricKey = null;
 
-            using var ctx = m_CtxFactory();
+            using var ctx = await m_CtxFactory.CreateDbContextAsync(ct).ConfigureAwait(false);
 
             symmetricKey = await ctx.SymmetricKeys
                 .Where(x => !x.IsDeleted
@@ -268,7 +264,7 @@ namespace Zametek.Access.Encryption
 
             if (symmetricKey is null)
             {
-                using var ctx = m_CtxFactory();
+                using var ctx = await m_CtxFactory.CreateDbContextAsync(ct).ConfigureAwait(false);
 
                 symmetricKey = await ctx.SymmetricKeys
                     .Where(x => !x.IsDeleted
@@ -303,7 +299,7 @@ namespace Zametek.Access.Encryption
 
             if (symmetricKey is null)
             {
-                using var ctx = m_CtxFactory();
+                using var ctx = await m_CtxFactory.CreateDbContextAsync(ct).ConfigureAwait(false);
 
                 symmetricKey = await ctx.SymmetricKeys
                     .OrderByDescending(x => x.CreatedAt)
@@ -335,7 +331,7 @@ namespace Zametek.Access.Encryption
             await DeleteCachedSymmetricKeyAsync(request.SymmetricKeyId, ct)
                 .ConfigureAwait(false);
 
-            using var ctx = m_CtxFactory();
+            using var ctx = await m_CtxFactory.CreateDbContextAsync(ct).ConfigureAwait(false);
 
             SymmetricKey? symmetricKey = await ctx.SymmetricKeys
                 .Where(x => !x.IsDeleted

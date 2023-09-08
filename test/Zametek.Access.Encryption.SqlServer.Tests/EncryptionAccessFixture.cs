@@ -1,11 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using System;
-using TestSupport.EfHelpers;
-using Zametek.Shared.Encryption.EFCore.TestHelpers;
 using Zametek.Utility.Cache;
 using Zametek.Utility.Logging;
 
@@ -42,29 +41,33 @@ namespace Zametek.Access.Encryption.Tests
 
             if (inMemory)
             {
-                //serviceCollection.AddDbContextFactoryEx<EncryptionDbContext>(options => options.UseInMemoryDatabase("EncryptionDbConnection").ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning)));
-
-                DbContextOptionsDisposable<EncryptionDbContext> options = SqliteInMemory.CreateOptions<EncryptionDbContext>(builder => builder.ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning)));
-
-                // https://github.com/JonPSmith/EfCore.TestSupport/blob/master/Version5UpgradeDocs.md
-                options.TurnOffDispose();
-
-                serviceCollection.AddDbContextFactoryEx<EncryptionDbContext>(() => options);
+                serviceCollection.AddPooledDbContextFactory<EncryptionDbContext>(optionsBuilder =>
+                {
+                    SqliteConnectionStringBuilder sqliteConnectionStringBuilder = new()
+                    {
+                        DataSource = @":memory:"
+                    };
+                    string connectionString = sqliteConnectionStringBuilder.ToString();
+                    SqliteConnection sqliteConnection = new(connectionString);
+                    sqliteConnection.Open();
+                    optionsBuilder.UseSqlite(sqliteConnection);
+                    optionsBuilder.ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning));
+                });
             }
             else
             {
-                serviceCollection.AddDbContextFactoryEx<EncryptionDbContext>(options => options.UseSqlServer(config["EncryptionDbConnectionString"]));
+                serviceCollection.AddPooledDbContextFactory<EncryptionDbContext>(optionsBuilder => optionsBuilder.UseSqlServer(config["EncryptionDbConnectionString"]));
             }
 
             ServerServices = serviceCollection.BuildServiceProvider();
 
             if (inMemory)
             {
-                ServerServices.GetService<Func<EncryptionDbContext>>().Invoke().Database.EnsureCreated();
+                ServerServices.GetService<IDbContextFactory<EncryptionDbContext>>().CreateDbContext().Database.EnsureCreated();
             }
             else
             {
-                ServerServices.GetService<Func<EncryptionDbContext>>().Invoke().Database.Migrate();
+                ServerServices.GetService<IDbContextFactory<EncryptionDbContext>>().CreateDbContext().Database.Migrate();
             }
         }
 
