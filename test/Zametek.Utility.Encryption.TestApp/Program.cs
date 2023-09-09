@@ -24,8 +24,9 @@ ILogger serilog = new LoggerConfiguration()
     .WriteTo.Seq("http://localhost:5341")
     .CreateLogger();
 
-bool inMemory = config.GetValue<bool>("InMemory");
+bool keyVault = config.GetValue<bool>("KeyVault");
 bool contextMethods = config.GetValue<bool>("ContextMethods");
+string dbType = config.GetValue<string>("DbType");
 
 Log.Logger = serilog;
 
@@ -40,41 +41,57 @@ var serviceCollection = new ServiceCollection()
     .Configure<CacheOptions>(config.GetSection("CacheOptions"))
     .AddDistributedMemoryCache();
 
-if (inMemory)
-{
-    serviceCollection.AddSingleton<IAsymmetricKeyVault>(new FakeKeyVault());
-
-    serviceCollection.AddPooledDbContextFactory<EncryptionDbContext>(optionsBuilder =>
-    {
-        SqliteConnectionStringBuilder sqliteConnectionStringBuilder = new()
-        {
-            DataSource = @":memory:"
-        };
-        string connectionString = sqliteConnectionStringBuilder.ToString();
-        SqliteConnection sqliteConnection = new(connectionString);
-        sqliteConnection.Open();
-        optionsBuilder.UseSqlite(sqliteConnection);
-        optionsBuilder.ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning));
-    });
-}
-else
+if (keyVault)
 {
     serviceCollection.AddSingleton<IAsymmetricKeyVault, AzureKeyVault>()
         .Configure<AzureKeyVaultOptions>(options => config.Bind("AzureKeyVaultOptions", options));
-
-    serviceCollection.AddPooledDbContextFactory<EncryptionDbContext>(optionsBuilder => optionsBuilder.UseSqlServer(config["EncryptionDbConnectionString"]));
-}
-
-var serviceProvider = serviceCollection.BuildServiceProvider();
-
-if (inMemory)
-{
-    serviceProvider.GetService<Func<EncryptionDbContext>>().Invoke().Database.EnsureCreated();
 }
 else
 {
-    serviceProvider.GetService<Func<EncryptionDbContext>>().Invoke().Database.Migrate();
+    serviceCollection.AddSingleton<IAsymmetricKeyVault>(new FakeKeyVault());
 }
+
+IServiceProvider serviceProvider = null;
+
+dbType.ValueSwitchOn()
+    .Case(@"Memory", _ =>
+    {
+        serviceCollection.AddPooledDbContextFactory<EncryptionDbContext>(optionsBuilder =>
+        {
+            SqliteConnectionStringBuilder sqliteConnectionStringBuilder = new()
+            {
+                DataSource = @":memory:"
+            };
+            string connectionString = sqliteConnectionStringBuilder.ToString();
+            SqliteConnection sqliteConnection = new(connectionString);
+            sqliteConnection.Open();
+            optionsBuilder.UseSqlite(sqliteConnection);
+            optionsBuilder.ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning));
+        });
+
+        serviceProvider = serviceCollection.BuildServiceProvider();
+        using var ctx = serviceProvider.GetService<IDbContextFactory<EncryptionDbContext>>().CreateDbContext();
+        ctx.Database.EnsureCreated();
+    })
+    .Case(@"SqlServer", _ =>
+    {
+        serviceCollection.AddPooledDbContextFactory<EncryptionDbContext>(optionsBuilder => optionsBuilder.UseSqlServer(config["EncryptionDbSqlServerConnectionString"]));
+        serviceProvider = serviceCollection.BuildServiceProvider();
+
+        using var ctx = serviceProvider.GetService<IDbContextFactory<EncryptionDbContext>>().CreateDbContext();
+        ctx.Database.EnsureCreated();
+        ctx.Database.Migrate();
+    })
+    .Case(@"Npgsql", _ =>
+    {
+        serviceCollection.AddPooledDbContextFactory<EncryptionDbContext>(optionsBuilder => optionsBuilder.UseNpgsql(config["EncryptionDbNpgsqlConnectionString"]));
+        serviceProvider = serviceCollection.BuildServiceProvider();
+
+        using var ctx = serviceProvider.GetService<IDbContextFactory<EncryptionDbContext>>().CreateDbContext();
+        ctx.Database.EnsureCreated();
+        ctx.Database.Migrate();
+    })
+    .Default(x => throw new InvalidOperationException($@"Unrecognized database type {x}"));
 
 IEncryptionUtility encryptionUtility = serviceProvider.GetService<IEncryptionUtility>();
 

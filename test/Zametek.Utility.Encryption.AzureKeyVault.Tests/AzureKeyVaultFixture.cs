@@ -16,7 +16,7 @@ namespace Zametek.Utility.Encryption.Tests
                 .AddEnvironmentVariables()
                 .Build();
 
-            bool inMemory = config.GetValue<bool>("InMemory");
+            bool keyVault = config.GetValue<bool>("KeyVault");
 
             ILogger serilog = new LoggerConfiguration().CreateLogger();
 
@@ -27,13 +27,13 @@ namespace Zametek.Utility.Encryption.Tests
                 .Configure<AzureKeyVaultOptions>(options => config.Bind("AzureKeyVaultOptions", options))
                 .AddSingleton(serilog);
 
-            if (inMemory)
+            if (keyVault)
             {
-                serviceCollection.TryAddSingletonWithLogProxy<IAsymmetricKeyVault, FakeKeyVault>();
+                serviceCollection.TryAddSingletonWithLogProxy<IAsymmetricKeyVault, AzureKeyVault>();
             }
             else
             {
-                serviceCollection.TryAddSingletonWithLogProxy<IAsymmetricKeyVault, AzureKeyVault>();
+                serviceCollection.TryAddSingletonWithLogProxy<IAsymmetricKeyVault, FakeKeyVault>();
             }
 
             ServerServices = serviceCollection.BuildServiceProvider();

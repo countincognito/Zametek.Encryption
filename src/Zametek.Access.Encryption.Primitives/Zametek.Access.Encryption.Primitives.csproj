@@ -4,7 +4,7 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<RootNamespace>Zametek.Access.Encryption</RootNamespace>
 		<Description>Zametek encryption utility access primitives.</Description>
-		<Version>0.1.1</Version>
+		<Version>0.2.0</Version>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<Authors>countincognito</Authors>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>

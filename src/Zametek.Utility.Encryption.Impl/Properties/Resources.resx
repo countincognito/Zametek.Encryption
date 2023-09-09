@@ -117,10 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Message_BytesToGenerateCannotBeLessThan32Bytes" xml:space="preserve">
+    <value>BytesToGenerate cannot be less than 32 bytes</value>
+  </data>
   <data name="Message_InitializationVectorMustBe128Bit" xml:space="preserve">
     <value>Initialization vector must be 128-bit</value>
   </data>
+  <data name="Message_IterationsCannotBeLessThan500000" xml:space="preserve">
+    <value>Iterations cannot be less than 500,000</value>
+  </data>
+  <data name="Message_KeyCannotBeLessThan256Bit" xml:space="preserve">
+    <value>Key cannot be less than 256-bit</value>
+  </data>
   <data name="Message_KeyMustBe256Bit" xml:space="preserve">
     <value>Key must be 256-bit</value>
+  </data>
+  <data name="Message_KeyMustBe256Bit1" xml:space="preserve">
+    <value>Key must be 256-bit</value>
+  </data>
+  <data name="Message_SaltCannotBeLessThan256Bit" xml:space="preserve">
+    <value>Salt cannot be less than 256-bit</value>
   </data>
 </root>

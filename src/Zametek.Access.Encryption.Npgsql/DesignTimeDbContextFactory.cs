@@ -9,9 +9,9 @@ namespace Zametek.Access.Encryption
         public EncryptionDbContext CreateDbContext(string[] args)
         {
             var builder = new DbContextOptionsBuilder<EncryptionDbContext>();
-            builder.UseSqlServer(
-                @"Server = (LocalDb)\MSSQLLocalDB; Database = Encryption; Trusted_Connection = True; MultipleActiveResultSets = true;",
-                optionsBuilder => optionsBuilder.MigrationsAssembly("Zametek.Access.Encryption.SqlServer"));
+            builder.UseNpgsql(
+                @"Server = localhost; Database = Encryption; Port = 5432; User ID = postgres; Password = postgres; Integrated Security = true; Pooling = true;",
+                optionsBuilder => optionsBuilder.MigrationsAssembly("Zametek.Access.Encryption.Npgsql"));
             return new EncryptionDbContext(builder.Options);
         }
     }

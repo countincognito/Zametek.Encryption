@@ -61,6 +61,15 @@ namespace Zametek.Utility.Encryption.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BytesToGenerate cannot be less than 32 bytes.
+        /// </summary>
+        internal static string Message_BytesToGenerateCannotBeLessThan32Bytes {
+            get {
+                return ResourceManager.GetString("Message_BytesToGenerateCannotBeLessThan32Bytes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Initialization vector must be 128-bit.
         /// </summary>
         internal static string Message_InitializationVectorMustBe128Bit {
@@ -70,11 +79,47 @@ namespace Zametek.Utility.Encryption.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Iterations cannot be less than 500,000.
+        /// </summary>
+        internal static string Message_IterationsCannotBeLessThan500000 {
+            get {
+                return ResourceManager.GetString("Message_IterationsCannotBeLessThan500000", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Key cannot be less than 256-bit.
+        /// </summary>
+        internal static string Message_KeyCannotBeLessThan256Bit {
+            get {
+                return ResourceManager.GetString("Message_KeyCannotBeLessThan256Bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Key must be 256-bit.
         /// </summary>
         internal static string Message_KeyMustBe256Bit {
             get {
                 return ResourceManager.GetString("Message_KeyMustBe256Bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Key must be 256-bit.
+        /// </summary>
+        internal static string Message_KeyMustBe256Bit1 {
+            get {
+                return ResourceManager.GetString("Message_KeyMustBe256Bit1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Salt cannot be less than 256-bit.
+        /// </summary>
+        internal static string Message_SaltCannotBeLessThan256Bit {
+            get {
+                return ResourceManager.GetString("Message_SaltCannotBeLessThan256Bit", resourceCulture);
             }
         }
     }

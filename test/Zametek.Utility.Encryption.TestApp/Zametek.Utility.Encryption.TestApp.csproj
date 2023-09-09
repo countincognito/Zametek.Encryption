@@ -26,8 +26,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\src\Zametek.Access.Encryption.Npgsql\Zametek.Access.Encryption.Npgsql.csproj" />
 		<ProjectReference Include="..\..\src\Zametek.Access.Encryption.SqlServer\Zametek.Access.Encryption.SqlServer.csproj" />
 		<ProjectReference Include="..\..\src\Zametek.Utility.Encryption.AzureKeyVault\Zametek.Utility.Encryption.AzureKeyVault.csproj" />
+		<ProjectReference Include="..\..\src\Zametek.Utility.Encryption.Extra\Zametek.Utility.Encryption.Extra.csproj" />
 		<ProjectReference Include="..\..\src\Zametek.Utility.Encryption.Impl\Zametek.Utility.Encryption.Impl.csproj" />
 	</ItemGroup>
 

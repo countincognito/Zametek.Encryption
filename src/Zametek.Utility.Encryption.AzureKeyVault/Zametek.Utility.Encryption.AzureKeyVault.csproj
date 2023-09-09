@@ -5,7 +5,7 @@
 		<RootNamespace>Zametek.Utility.Encryption</RootNamespace>
 		<Description>Zametek encryption utility Azure KeyVault implementation.</Description>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<Version>0.1.1</Version>
+		<Version>0.2.0</Version>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<NeutralLanguage>en-GB</NeutralLanguage>
 		<Authors>countincognito</Authors>
@@ -13,12 +13,6 @@
 		<Copyright>Copyright (c) 2023 Riccardo M Bennett-Lovsey</Copyright>
 		<PackageProjectUrl>https://github.com/countincognito/Zametek.Encryption</PackageProjectUrl>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<Compile Remove="Extensions\**" />
-		<EmbeddedResource Remove="Extensions\**" />
-		<None Remove="Extensions\**" />
-	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Azure.Identity" Version="1.10.0" />
@@ -29,7 +23,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
-		<PackageReference Include="Zametek.Utility.Encryption.Primitives" Version="0.1.1" />
+		<PackageReference Include="Zametek.Utility.Encryption.Primitives" Version="0.2.0" />
 		<PackageReference Include="Zametek.Utility" Version="3.0.0" />
 	</ItemGroup>
 
