@@ -7,7 +7,7 @@
 		<RootNamespace>Zametek.Access.Encryption</RootNamespace>
 		<Description>Zametek encryption utility Entity Framework Core access implementation.</Description>
 		<Authors>countincognito</Authors>
-		<Version>0.2.0</Version>
+		<Version>0.2.1</Version>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<Copyright>Copyright (c) 2023 Riccardo M Bennett-Lovsey</Copyright>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -30,9 +30,9 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
 		<PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
-		<PackageReference Include="Zametek.Access.Encryption.Primitives" Version="0.2.0" />
+		<PackageReference Include="Zametek.Access.Encryption.Primitives" Version="0.2.1" />
 		<PackageReference Include="Zametek.Utility" Version="3.0.0" />
 		<PackageReference Include="Zametek.Utility.Cache.Primitives" Version="0.1.3" />
 	</ItemGroup>

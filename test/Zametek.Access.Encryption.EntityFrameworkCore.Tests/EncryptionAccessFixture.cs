@@ -62,20 +62,24 @@ namespace Zametek.Access.Encryption.Tests
                 })
                 .Case(@"SqlServer", _ =>
                 {
-                    serviceCollection.AddPooledDbContextFactory<EncryptionDbContext>(optionsBuilder => optionsBuilder.UseSqlServer(config["EncryptionDbSqlServerConnectionString"]));
+                    serviceCollection.AddPooledDbContextFactory<EncryptionDbContext>(
+                        options => options.UseSqlServer(
+                            config["EncryptionDbSqlServerConnectionString"],
+                            optionsBuilder => optionsBuilder.MigrationsAssembly(typeof(SqlServerDesignTimeDbContextFactory).Assembly.FullName)));
                     ServerServices = serviceCollection.BuildServiceProvider();
 
                     using var ctx = ServerServices.GetService<IDbContextFactory<EncryptionDbContext>>().CreateDbContext();
-                    ctx.Database.EnsureCreated();
                     ctx.Database.Migrate();
                 })
                 .Case(@"Npgsql", _ =>
                 {
-                    serviceCollection.AddPooledDbContextFactory<EncryptionDbContext>(optionsBuilder => optionsBuilder.UseNpgsql(config["EncryptionDbNpgsqlConnectionString"]));
+                    serviceCollection.AddPooledDbContextFactory<EncryptionDbContext>(
+                        options => options.UseNpgsql(
+                            config["EncryptionDbNpgsqlConnectionString"],
+                            optionsBuilder => optionsBuilder.MigrationsAssembly(typeof(NpgsqlDesignTimeDbContextFactory).Assembly.FullName)));
                     ServerServices = serviceCollection.BuildServiceProvider();
 
                     using var ctx = ServerServices.GetService<IDbContextFactory<EncryptionDbContext>>().CreateDbContext();
-                    ctx.Database.EnsureCreated();
                     ctx.Database.Migrate();
                 })
                 .Default(x => throw new InvalidOperationException($@"Unrecognized database type {x}"));

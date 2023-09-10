@@ -5,7 +5,7 @@
 		<RootNamespace>Zametek.Utility.Encryption</RootNamespace>
 		<Description>Zametek encryption utility extras.</Description>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<Version>0.2.0</Version>
+		<Version>0.2.1</Version>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<Copyright>Copyright (c) 2023 Riccardo M Bennett-Lovsey</Copyright>
@@ -22,7 +22,7 @@
 		</PackageReference>
 		<PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="7.0.10" />
 		<PackageReference Include="Zametek.Utility" Version="3.0.0" />
-		<PackageReference Include="Zametek.Utility.Encryption.Primitives" Version="0.2.0" />
+		<PackageReference Include="Zametek.Utility.Encryption.Primitives" Version="0.2.1" />
 	</ItemGroup>
 
 	<ItemGroup>

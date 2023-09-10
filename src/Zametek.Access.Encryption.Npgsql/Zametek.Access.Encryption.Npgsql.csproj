@@ -7,7 +7,7 @@
 		<RootNamespace>Zametek.Access.Encryption</RootNamespace>
 		<Description>Zametek encryption utility PostgreSQL access implementation.</Description>
 		<Authors>countincognito</Authors>
-		<Version>0.2.0</Version>
+		<Version>0.2.1</Version>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<Copyright>Copyright (c) 2023 Riccardo M Bennett-Lovsey</Copyright>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -28,12 +28,16 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.10">
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
-		<PackageReference Include="Zametek.Access.Encryption.EntityFrameworkCore" Version="0.2.0" />
+		<PackageReference Include="Zametek.Access.Encryption.EntityFrameworkCore" Version="0.2.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Migrations\" />
 	</ItemGroup>
 
 </Project>

@@ -12,8 +12,8 @@ using Zametek.Access.Encryption;
 namespace Zametek.Access.Encryption.Migrations
 {
     [DbContext(typeof(EncryptionDbContext))]
-    [Migration("20230908204222_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230910112514_NpgsqlInitialCreate")]
+    partial class NpgsqlInitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
